@@ -1,3 +1,12 @@
+import "./pages/index.css";
+//Импорт классов
+import {Api} from './js/Api.js';
+import {Card} from './js/Card.js';
+import {CardList} from './js/CardList.js';
+import {FormValidator} from './js/FormValidator.js';
+import {initialCards} from './js/initialCards.js';
+import {Popup} from './js/Popup.js';
+import {UserInfo} from './js/UserInfo.js';
 // IIFE
 (function () {
 
@@ -22,7 +31,8 @@ const popupAdd = document.querySelector('#popup-add');
 const popupEdit = document.querySelector('#popup-edit');
 const popupPicture = document.querySelector('#popup-picture');
 const popup = new Popup(popupAdd, popupEdit, popupPicture);
-const api = new Api();
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk' : 'https://praktikum.tk';
+const api = new Api(serverUrl);
 
 /*Куча вызовов и слушателей*/
 
