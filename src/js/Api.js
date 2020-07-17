@@ -1,6 +1,6 @@
-class Api {
-    constructor() {
-
+export class Api {
+    constructor(baseUrl) {
+            this.baseUrl = baseUrl;
     }
 
     getUserInfo() {
@@ -10,7 +10,7 @@ class Api {
             При этом итоговый адрес запроса собирается из адреса сервера и адреса ендпоинта:
             fetch(`${this.baseUrl}/users/me`
         */
-        return fetch('http://praktikum.tk/cohort10/users/me', {
+        return fetch(`${this.baseUrl}/cohort10/users/me`, { //http://praktikum.tk/cohort10/users/me'
             headers: {
                 authorization: '7a45e0e5-9273-458c-8551-b84f43589b7b'
             }
@@ -35,7 +35,7 @@ class Api {
     }
 
     getCards() {
-        return fetch('https://praktikum.tk/cohort10/cards', {
+        return fetch(`${this.baseUrl}/cohort10/cards`, {
             headers: {
                 authorization: '7a45e0e5-9273-458c-8551-b84f43589b7b'
             }
@@ -48,7 +48,7 @@ class Api {
     }
 
     patchUserInfo(userName, userAbout) {
-        return fetch('https://praktikum.tk/cohort10/users/me', {
+        return fetch(`${this.baseUrl}/cohort10/users/me`, {
             method: 'PATCH',
             headers: {
                 authorization: '7a45e0e5-9273-458c-8551-b84f43589b7b',
@@ -67,7 +67,7 @@ class Api {
     }
 
     postNewCard(name, link) {
-        return fetch('https://praktikum.tk/cohort10/cards', {
+        return fetch(`${this.baseUrl}/cohort10/cards`, {
             method: 'POST',
             headers: {
                 authorization: '7a45e0e5-9273-458c-8551-b84f43589b7b',
